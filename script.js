@@ -9,6 +9,7 @@ function addR() {
     grid.insertRow()
     for (let i = 0; i < numCols; i++){
         grid.rows[numRows].insertCell()
+        grid.rows[numRows].lastElementChild.setAttribute('onclick', "changeColor(this)")
     }
     numRows++
     //alert("Clicked Add Row"); // Replace this line with your code.
@@ -18,7 +19,10 @@ function addR() {
 function addC() {
     const grid = document.getElementById("grid")
     const rows = grid.querySelectorAll("tr")
-    rows.forEach((row) => row.insertCell())
+    rows.forEach((row) => {
+        row.insertCell()
+        row.lastElementChild.setAttribute('onclick', "changeColor(this)")
+    })
     numCols++
     //alert("Clicked Add Col"); // Replace this line with your code.
 }
@@ -54,13 +58,11 @@ function selectColor(){
 function fillU(){
     const grid = document.getElementById("grid")
     const cells = grid.querySelectorAll("td")
-    cells.forEach((cell) => 
-        {
-            if (cell.style.backgroundColor == "" || cell.style.backgroundColor == "white"){ //No color or white
-                cell.style.backgroundColor = colorSelected
-            }
+    cells.forEach((cell) => {
+        if (cell.style.backgroundColor == "" || cell.style.backgroundColor == "white"){ //No color or white
+            cell.style.backgroundColor = colorSelected
         }
-    )
+    })
     //alert("Clicked Fill All Uncolored"); // Replace this line with your code.
 }
 
@@ -82,4 +84,9 @@ function clearAll(){
         cell.style.backgroundColor = "white"
     )
     //alert("Clicked Clear All"); // Replace this line with your code.
+}
+
+// Change color of cell object
+function changeColor(object){
+    object.style.backgroundColor = colorSelected
 }
