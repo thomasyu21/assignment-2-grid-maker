@@ -52,15 +52,34 @@ function selectColor(){
 
 // Fill all uncolored cells
 function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    const grid = document.getElementById("grid")
+    const cells = grid.querySelectorAll("td")
+    cells.forEach((cell) => 
+        {
+            if (cell.style.backgroundColor == "" || cell.style.backgroundColor == "white"){ //No color or white
+                cell.style.backgroundColor = colorSelected
+            }
+        }
+    )
+    //alert("Clicked Fill All Uncolored"); // Replace this line with your code.
 }
 
 // Fill all cells
 function fillAll(){
-    alert("Clicked Fill All"); // Replace this line with your code.
+    const grid = document.getElementById("grid")
+    const cells = grid.querySelectorAll("td")
+    cells.forEach((cell) => 
+        cell.style.backgroundColor = colorSelected
+    )
+    //alert("Clicked Fill All"); // Replace this line with your code.
 }
 
 // Clear all cells
 function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
+    const grid = document.getElementById("grid")
+    const cells = grid.querySelectorAll("td")
+    cells.forEach((cell) => 
+        cell.style.backgroundColor = "white"
+    )
+    //alert("Clicked Clear All"); // Replace this line with your code.
 }
