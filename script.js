@@ -25,12 +25,23 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    if (numRows > 0){
+        const grid = document.getElementById("grid")
+        grid.deleteRow(numRows-1)
+        numRows--
+    }
+    //alert("Clicked Remove Row"); // Replace this line with your code.
 }
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+    if (numCols > 0){
+        const grid = document.getElementById("grid")
+        const rows = grid.querySelectorAll("tr")
+        rows.forEach((row) => row.deleteCell(numCols-1))
+        numCols--
+    }
+    //alert("Clicked Remove Col"); // Replace this line with your code.
 }
 
 // Set global variable for selected color
